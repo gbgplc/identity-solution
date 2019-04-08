@@ -12,5 +12,5 @@ Please use the contents below to take you to the relevant guides:
   <li><a href="https://github.com/gbgplc/identity-solution/wiki">Identity Solution REST API usage</a></li>
   <li><a href="https://github.com/gbgplc/identity-solution/wiki/Which-Services-To-Use">Verification Services</a></li>
   <li><a href="https://app.swaggerhub.com/search?type=API&amp;owner=GBGPLC">Schema (SwaggerHub etc)</a></li>
-  <li><a href="https://github.com/gbgplc/identity-solution/wiki">Mobile SDK references</a></li>
+  <li><a href="https://github.com/gbgplc/identity-solution/wiki/Mobile-SDK-Overview">Mobile SDK references</a></li>
 </ul>
