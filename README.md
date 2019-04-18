@@ -1,5 +1,4 @@
 # identity-solution
-The GBG Identity Solution (have a play at https://app.swaggerhub.com/search?type=API&amp;owner=GBGPLC)
 
 Welcome to GBG's Identity Solution Github, here you will find useful guides on how to integrate and implement GBG's new REST-based services for identity verification.
 
