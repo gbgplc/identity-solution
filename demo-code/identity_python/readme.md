@@ -39,6 +39,7 @@ Description: This program is similar to verify_documentimage_v4.py but using an 
 ### auth.txt
 Example content is shown here. This example uses Microsoft Azure as the identity provider.
 Please note that the Machine-to-Machine (M2M) Client Secret authentication method is used for this example code bundle.
+
 	{
 	  "auth_url": "https://login.microsoftonline.com",
 	  "auth_ep": "/d343dc04-2abd-95b3-1047-2f6afc760ed8/oauth2/v2.0/token",
@@ -49,6 +50,7 @@ Please note that the Machine-to-Machine (M2M) Client Secret authentication metho
 
 ### config.txt
 Here is example content for the config.txt file. You can modify this to suit your needs.
+
 	{
 	  "gbg_url": "https://api.gbgplc.com",
 	  "pathroot": "/verify/people/v4",
