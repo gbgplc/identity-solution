@@ -50,7 +50,7 @@ Please note that the Machine-to-Machine (M2M) Client Secret authentication metho
 ### config.txt
 Here is example content for the config.txt file. You can modify this to suit your needs.
 	{
-	  "gbg_url": "https://idaasstaging.gbgplc.com",
+	  "gbg_url": "https://api.gbgplc.com",
 	  "pathroot": "/verify/people/v4",
 	  "journey_id": "04c7efc6-83b7-a7e8-b423-6cde8fa924a2",
 	  "journey_version": "1",
