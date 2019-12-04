@@ -8,31 +8,41 @@ The bundle called identity_python provides an easy way to test out API calls for
 Currently, the bundle contains these configuration files which are used by the Python programs. These configuration files should be manually edited prior to running the programs. 
 
 Name: **auth.txt**
+
 Description: This file contains the credentials to connect to the GBG Identity Solution
 
 Name: **config.txt**
+
 Description: This file contains an identifier labelled journey_id which is supplied when you register for the GBG Identity Solution. You can also populate the name of any document you wish to use for verification in this file too.
 
 The bundle contains the following Python programs:
+
 Name: **get_token.py**
+
 Description: When executed, this program will connect to the identity provider service (such as Microsoft Azure or Amazon AWS) to retrieve an identity provider access token, and then connect to the GBG Identity Solution service to exchange that for a GBG access token.
 
 Name: **verify_person_v4.py**
+
 Description: When executed, this program will connect to the identity provider service (such as Microsoft Azure or Amazon AWS) to retrieve an identity provider access token, and then connect to the GBG Identity Solution service to exchange that for a GBG access token.
 
 Name: **verify_person_v4.py**
+
 Description: This program will call the Identity Solution API in order to verify person details. Today, the person details you wish to specify can be directly edited within the verify_person_v4.py program before running it. How to do this is described further below.
 
 Name: **verify_documentimage_v4.py**
+
 Description: This program will call the Identity Solution API in order to verify a document. The document name is specified in the config.txt file today. Place the document image file (for example in JPG format) in the images sub-folder prior to running this program.
 
 Name: **face_match.py**
+
 Description: This program will call the Identity Solution’s Face Match service. Prior to running this program, place the image file in the images sub-folder, and populate the filename in the config.txt file.
 
 Name: **verify_person.py** [deprecated]
+
 Description: This program performs tasks similar to verify_person_v4.py, but uses an older API. This program will be removed in later releases.
 
 Name: **verify_document.py** [deprecated]
+
 Description: This program is similar to verify_documentimage_v4.py but using an older API. This program will be removed in later releases.
 
 ## Setting up the Configuration Files
@@ -62,30 +72,41 @@ Here is example content for the config.txt file. You can modify this to suit you
 
 ## Running the Code
 These current instructions assume that you’re using Linux or a Mac. If you’re running Windows, you may need to modify some of these instructions. 
+
 Ensure that your computer has Python 3.x.x installed. You can test this by typing the following:
+
 	/usr/bin/python3 --version
 It should return a version number such as 3.6.8.
+
 Next, ensure the programs have ‘execute’ permission by typing: 
+
 	chmod 755 *.py *.sh
 You can now run any of the Python programs by typing ./ followed by the program name. For instance:
+
 	./get_token.py
 No additional command line parameters are used, except when person identifiers need to be chained.
+
 For instance, if you wish to execute verify_person_v4.py followed by verify_documentimage_v4.py then you can specify the text with-person-id on the command line for the second command:
+
 	./verify_person_v4.py
 	./verify_documentimage_v4.py with-person-id
 
 ## Creating Scripts
 You can automatically execute multiple Python programs in sequence by creating scripts. There is an example script in the bundle, called data_first.sh. The script is executed in the same manner:
+
 	./data_first.sh
 You can use scripts to automatically first run get_token.py followed by any other Python programs.
 
 ## How do the Python programs communicate with each other?
 _Note: this information is unnecessary for running the programs, but the information is useful if you wish to copy and edit the programs to suit your needs._
+
 When  get_token.py is executed, it will automatically same the GBG access token into a file called token_store.pkl and the other Python programs will automatically read from that file.
+
 When any of the other programs are executed, the programs will extract the Person Identifier field (it is in the response header named ‘person-id’) and save it to a file called id_store.pkl. Programs will read the file and make use of that field if the command line has with-person-id appended.
 
 ## What do the programs display?
 When the programs are executed, the output will display the response to the API call. The response headers are displayed, along with the response body. After that, a summary is displayed showing the decision and score.
+
 Here is the example output for verify_person_v4.py:
 
 	Linux-pc:~/development/identity_python$ ./verify_person_v4.py 
