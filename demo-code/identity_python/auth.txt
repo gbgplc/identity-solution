@@ -1,0 +1,8 @@
+{
+  "auth_url": "https://login.microsoftonline.com",
+  "auth_ep": "/d42cdc04-234d-4af2-4287-87b33faa0358/oauth2/v2.0/token",
+  "app_client_id": "cdead311-411e-2231-9121-d2231b0acfbd",
+  "app_pw_client_secret": "xAbcl7@=?jau:a7BfEJJq04PoWw52L1",
+  "scope_append": "/.default"
+}
+

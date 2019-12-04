@@ -1,0 +1,9 @@
+{
+  "gbg_url": "https://idaasstaging.gbgplc.com",
+  "pathroot": "/verify/people/v4",
+  "journey_id": "07befbc6-12bc-779e-b123-6efcdf99944",
+  "journey_version": "1",
+  "docname": "demo_doc_passport.jpeg",
+  "facefilename": "bobselfie.jpg"
+}
+
