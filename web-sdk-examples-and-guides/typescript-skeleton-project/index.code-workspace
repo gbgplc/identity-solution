@@ -1,0 +1,93 @@
+{
+	"folders": [
+		{
+			"name": "GBG Web IDaaS Simple TypeScript Implementation",
+			"path": "."
+		}
+	],
+	"settings": {
+		"cSpell.enabledLanguageIds": [
+			"css",
+			"ejs",
+			"html",
+			"json",
+			"plaintext",
+			"javascript",
+			"typescript",
+			"javascriptreact",
+			"typescriptreact",
+			"markdown"
+		],
+		"cSpell.words": [
+			"isdk",
+			"deepmerge",
+			"mergeable",
+			"renderable"
+		],
+		"editor.codeActionsOnSave": {
+			"source.fixAll": true
+		},
+		"editor.detectIndentation": false,
+		"editor.formatOnPaste": true,
+		"editor.formatOnSave": true,
+		"editor.formatOnType": true,
+		"editor.insertSpaces": false,
+		"editor.rulers": [
+			80
+		],
+		"editor.tabSize": 4,
+		"files.eol": "\n",
+		"files.exclude": {
+			"**/*.*-base": true,
+			"**/*.*-ours": true,
+			"**/*.*-theirs": true,
+			"**/*.lock": true,
+			"**/.DS_Store": true,
+			"**/.awcache": true,
+			"**/.git": true,
+			"**/.hg": true,
+			"**/.idea": true,
+			"**/.jest-cache": true,
+			"**/.log": true,
+			"**/.nvmrc": true,
+			"**/.svn": true,
+			"**/.temp": true,
+			"**/.vs": true,
+			"**/coverage": true,
+			"**/dist": true,
+			"**/node_modules": true,
+			"**/temp": true
+		},
+		"files.insertFinalNewline": true,
+		"files.trimFinalNewlines": true,
+		"files.trimTrailingWhitespace": true,
+		"git.autofetch": true,
+		"git.autorefresh": true,
+		"git.checkoutType": "all",
+		"git.confirmSync": false,
+		"git.countBadge": "all",
+		"git.decorations.enabled": true,
+		"git.enabled": true,
+		"git.promptToSaveFilesBeforeCommit": "staged",
+		"javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
+		"javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+		"javascript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": true,
+		"javascript.preferences.quoteStyle": "single",
+		"search.useGlobalIgnoreFiles": true,
+		"search.useIgnoreFiles": true,
+		"tslint.configFile": "./tslint.json",
+		"tsconfig": "./tsconfig.json",
+		"tslint.ignoreDefinitionFiles": false,
+		"tslint.jsEnable": true,
+		"typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+		"typescript.preferences.importModuleSpecifier": "relative",
+		"typescript.preferences.quoteStyle": "single",
+		"npm.packageManager": "npm",
+		"npm.enableScriptExplorer": true,
+		"workbench.colorCustomizations": {
+			"activityBar.background": "#32167B",
+			"titleBar.activeBackground": "#461EAC",
+			"titleBar.activeForeground": "#FAF9FE"
+		},
+	}
+}

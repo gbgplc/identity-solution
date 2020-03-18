@@ -1,0 +1,22 @@
+{
+	"compilerOptions": {
+		"allowSyntheticDefaultImports": true,
+		"baseUrl": ".",
+		"experimentalDecorators": true,
+		"jsx": "react",
+		"lib": [
+			"es5",
+			"es6",
+			"dom"
+		],
+		"module": "commonjs",
+		"noImplicitAny": true,
+		"sourceMap": true,
+		"strict": true,
+		"stripInternal": true,
+		"target": "es5"
+	},
+	"exclude": [
+		"node_modules"
+	]
+}

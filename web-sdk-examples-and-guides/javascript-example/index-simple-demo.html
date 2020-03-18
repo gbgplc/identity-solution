@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Web SDK simple demo</title>
+	<link rel="stylesheet" type="text/css" href="./index.css" />
+</head>
+
+<body>
+	<div id="root">
+		<form id="AuthForm">
+			<div class="button__container">
+				<button class="button--primary">Authenticate</button>
+			</div>
+		</form>
+	</div>
+	
+	
+	<script type="text/javascript" src="dist/sdk/idaas.gbg.js?11223344" charset="UTF-8"></script>
+	<script defer>
+		
+		var verification_id = null;
+	
+		function getAccessToken(username, password) {
+			return "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IllNRUxIVDBndmIwbXhvU0RvWWZvbWpxZmpZVSJ9.eyJhdWQiOiJkNGZhZDMwMC00MjFlLTQ4ZjctOWRhZS1kNDhhNWIwYzlhYmQiLCJpc3MiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vZDM4M2NjMDQtM2JiZC00NGIzLTg4ODctMmZiYmVmNzYwMzU4L3YyLjAiLCJpYXQiOjE1ODQ0OTE4NjEsIm5iZiI6MTU4NDQ5MTg2MSwiZXhwIjoxNTg0NDk1NzYxLCJhaW8iOiI0Mk5nWUlnN2xIRmxjc2pkRDg4bmE3OTdFbDdtQWdBPSIsImF6cCI6ImQ0ZmFkMzAwLTQyMWUtNDhmNy05ZGFlLWQ0OGE1YjBjOWFiZCIsImF6cGFjciI6IjEiLCJvaWQiOiIwOGRkYjg5MS00M2Q3LTQxNGUtYjNhNi1mZmIyZDE3OWUzZTgiLCJzdWIiOiIwOGRkYjg5MS00M2Q3LTQxNGUtYjNhNi1mZmIyZDE3OWUzZTgiLCJ0aWQiOiJkMzgzY2MwNC0zYmJkLTQ0YjMtODg4Ny0yZmJiZWY3NjAzNTgiLCJ1dGkiOiJpQkxGdnRRTW9FbVJXdm5EX2tVQUFBIiwidmVyIjoiMi4wIn0.d2ATRzVdvGu1MZQp_OX3_f_Zbhb0n6zvVgi03ogRbLPCJvErQ6Ky3P-EhF3598pQHtSRa1vMJmRShFm2gwkPq8F9oL4wqUupgwHnppG0k6717ixunhefadm_5EfB5MpLz3pFOj28PJfyeZeiTb4gK9iVSZeA36fu9_we1mAP-d1WfdIHk3GAy0wQdZMIH4vqzPW_jqLHW1vVlUog9WRQ19NXw21DUiCPOOJ9314BBO5qOIBSOevBqc9JcIE6wp_KkpVxtNXkvfu4HK5zFF8vxZAI5Y7nZr4X18e7eOrSeiWZXB2fBUbGjAEdUX7p-B8bgKyq2NBWggBQ1nXJaSIVVg";
+		}
+
+		function initSDK() {
+			return new window.GBG.IDaaS.SDK()
+				// Set the configuration for it
+				.configure({
+					baseServiceUrl: 'https://api.gbgplc.com'
+				})
+				.then((instance) => window.sdkInstance = instance)
+				.then(() => window.sdkInstance.initialise(document.getElementById('root')))
+		}
+		
+		function do_auth(accessToken) {
+			return window.sdkInstance.authenticate({
+				clientId: 'ro.client',
+				clientSecret: 'secret',
+				grantType: 'id_auth',
+				idToken: accessToken
+				})
+				.then(() => console.log("authentication done"))
+		}
+		
+		function do_address() {
+			return window.sdkInstance.performActivity({
+				activity: GBG.IDaaS.Activities.AddressLookup
+			})
+			.then((obj) => {
+				console.log(obj);
+			})
+			.then(() => console.log("done address"))
+		}
+		
+		function do_facematch() {
+			return window.sdkInstance.performActivity({
+				activity: GBG.IDaaS.Activities.FaceMatch, parameters: {verificationId:verification_id}
+			})
+			.then((obj) => {
+				console.log(obj);
+			})
+			.then(() => console.log("done facematch"))
+		}
+		
+		function do_peopleverify() {
+			return window.sdkInstance.performActivity({
+				activity: GBG.IDaaS.Activities.PeopleVerify
+			})
+			.then((obj) => {
+				console.log(obj);
+			})
+			.then(() => console.log("done people verify"))
+		}
+		
+		function do_docCapture() {
+			return window.sdkInstance.performActivity({
+				activity: GBG.IDaaS.Activities.CaptureDocument
+			})
+			.then((obj) => {
+				console.log(obj);
+				verification_id = obj.meta.verificationID;
+			})
+			.then(() => console.log("document capture done"))
+		}
+	
+
+		document.getElementById('AuthForm')
+			.addEventListener('submit', (e) => {
+				e.preventDefault();
+				
+				var username=null;
+				var password=null;
+
+				access_token=getAccessToken(username, password);
+				
+				initSDK()
+				.then(() => do_auth(access_token))
+				.then(() => do_peopleverify())
+				.then(() => do_address())
+				.then(() => do_docCapture())
+				.then(() => do_facematch());
+				
+					
+			});
+	</script>
+</body>
+
+</html>
